@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>glow up</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', Arial, sans-serif;
+    }
+
+    .container {
+      background: url('/images/wal.jpeg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      padding: 0 20px;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .navbar a {
+      color: #68795a;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .site-name {
+      font-size: 1.5rem;
+      font-family: 'Stencil Std', fantasy;
+      font-weight: bold;
+    }
+
+    .content {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      font-family: 'Stencil Std', fantasy;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #68795a;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="navbar">
+    <div class="site-name">Glow Up!</div>
+    <div>
+      <a href="/Index">Shop</a>
+      <a href="/login">Log In</a>
+      <a href="/register">Sign Up</a>
+      <a href="/review">Reviews </a>
+      <a href="/ourbrands">Our Brands</a>
+    </div>
+  </div>
+  <div class="content">
+    <h1>Glow Up your skin </h1>
+    <p>GROW UP is a premium skincare brand dedicated to enhancing skin health and beauty through natural, scientifically-proven ingredients.</p>
+    <a href="/Index" class="btn">Shop Now</a>
+  </div>
+</div>
+</body>
+</html>

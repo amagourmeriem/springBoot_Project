@@ -1,0 +1,138 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Login Form with Avatar Image</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            background: url('/images/loginwall.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff; /* Ensure text is readable on the background image */
+        }
+        .form-control {
+            min-height: 41px;
+            background: #fff;
+            box-shadow: none !important;
+            border-color: #e3e3e3;
+        }
+        .form-control:focus {
+            border-color: #70c5c0;
+        }
+        .form-control, .btn {
+            border-radius: 2px;
+        }
+        .login-form {
+            width: 350px;
+            margin: 0 auto;
+            padding: 100px 0 30px;
+        }
+        .login-form form {
+            color: #68795a;
+            border-radius: 2px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            background: #000000;
+            box-shadow: 0px 2px 2px rgb(104, 121, 90);
+            padding: 30px;
+            position: relative;
+        }
+        .login-form h2 {
+            font-size: 22px;
+            margin: 35px 0 25px;
+        }
+        .login-form .avatar {
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            top: -50px;
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            z-index: 9;
+            background: #68795a;
+            padding: 15px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+        .login-form .avatar img {
+            width: 100%;
+        }
+        .login-form input[type="checkbox"] {
+            margin-top: 2px;
+        }
+        .login-form .btn {
+            font-size: 16px;
+            font-weight: bold;
+            background: #68795a;
+            border: none;
+            margin-bottom: 20px;
+        }
+        .login-form .btn:hover, .login-form .btn:focus {
+            background: #68795a;
+            outline: none !important;
+        }
+        .login-form a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .login-form a:hover {
+            text-decoration: none;
+        }
+        .login-form form a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .login-form form a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="login-form" >
+    <form action="/updateProduct" method="post" enctype="multipart/form-data">
+        <div class="form-header">
+            <h2>Add Product</h2>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="hidden" name="id" th:value="${productToBeUpdated.getId()}">
+            <label>Name</label>
+            <input type="text" th:value="${productToBeUpdated.getName()}" class="form-control" name="name" required>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" th:value="${productToBeUpdated.getDescription()}"  class="form-control" name="description" required="required">
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input type="text" th:value="${productToBeUpdated.getPrice()}"  class="form-control" name="price" required="required">
+        </div>
+        <div class="form-group">
+            <label>Current Image</label>
+            <div>
+                <img th:if="${productToBeUpdated.imageUrl}" th:src="@{${productToBeUpdated.imageUrl}}" alt="Current Image" style="max-width: 200px; max-height: 200px;">
+                <span th:unless="${productToBeUpdated.imageUrl}">No image available</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Upload New Image</label>
+            <input type="file" class="form-control" name="image">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Update Product</button>
+            <a href="/ProductList" class="btn btn-primary btn-block btn-lg">Return to Product List</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
